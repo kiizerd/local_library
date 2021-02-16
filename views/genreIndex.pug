@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div.ui.relaxed.celled.list
+    each genre in genres 
+      div.item
+        div.header #{genre.name}
+        
+  p database status: #{dbStatus}
