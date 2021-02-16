@@ -2,7 +2,22 @@ doctype html
 html
   head
     title= title
-        link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
+    link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/semantic-ui@2.3.3/dist/semantic.min.css')
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
+
+    h1= title
+
+    div.ui.inverted.menu
+      a.item(href="/") Home
+      div.ui.simple.dropdown.item View all..
+        i.dropdown.icon 
+        div.menu
+          <a class="item" href="/catalog/books/">Books</a>
+          <a class="item" href="/catalog/authors/">Authors</a>
+          <a class="item" href="/catalog/genres/">Genres</a>
+          <a class="item" href="/catalog/book_instances/">Book Instances</a>
+      div.ui.simple.dropdown.item CRUD
+        i.dropdown.icon 
+        div.menu
     block content

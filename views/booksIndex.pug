@@ -1,11 +1,12 @@
 extends layout
 
 block content
-  h1= title
-  p database status: #{dbStatus}
   
   div.ui.relaxed.celled.list
     each book in books 
-      div.content
-        div.header
+      div.item
+        div.header Title: #{book.title}
+        div Author: #{book.author}
 
+  | #{authors}
+  p database status: #{dbStatus}
