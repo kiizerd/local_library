@@ -20,13 +20,15 @@
     "express-validator": "^6.6.1",
     "helmet": "^4.1.1",
     "http-errors": "~1.6.3",
-    "luxon": "^1.25.0",
+    "luxon": "^1.26.0",
     "mongodb": "^3.6.4",
     "mongoose": "^5.11.13",
     "morgan": "~1.9.1",
     "pug": "2.0.0-beta11"
   },
   "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-google": "^0.14.0",
     "nodemon": "^2.0.4"
   }
 }

@@ -1,8 +1,0 @@
-extends layout
-
-block content
-  div.ui.relaxed.celled.list
-    each author in authors 
-      div.item
-        div.header #{author.name}
-  p database status: #{dbStatus}

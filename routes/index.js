@@ -5,12 +5,9 @@ const db = require('../db')
 
 let dbStatus = db.connection.readyState
 
-router.get('/', function(req, res, next) {
+// GET home page.
+router.get('/', function(req, res) {
   res.redirect('/catalog');
-});
-
-router.get('/catalog', function(req, res, next) {
-  res.render('index', { title: 'Local Library', dbStatus: dbStatus });
 });
 
 module.exports = router;
