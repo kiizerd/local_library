@@ -3,12 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fs = require('fs');
 
 require('dotenv').config()
 
 var indexRouter = require('./routes/index');
-var booksRouter = require('./routes/booksRoute');
-var authorsRouter = require('./routes/authorsRoute');
+var booksRouter = require('./routes/objectRoutes/booksRoute');
+var authorsRouter = require('./routes/objectRoutes/authorsRoute');
 
 var app = express();
 
