@@ -1,16 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-const db = require('../../db')
+const db = require('../../db');
+const bookInstanceModel = require('../../models/bookinstance');
 
-let dbStatus = db.connection.readyState
+let dbStatus = db.connection.readyState;
 
-router.get('/', function(req, res, next) {
-  res.redirect('/catalog');
-});
+router.get('/bookinstances', (req, res) => res.redirect('/catalog/genre'));
 
-router.get('/catalog', function(req, res, next) {
-  res.render('index', { title: 'Local Library', dbStatus: dbStatus });
+router.get('/catalog/book_instances', async (req, res, next) => {
+  let bookInstanceQuery = await bookInstanceModel.find({});
+  res.render('bookInstIndex', {
+    title: 'Our Book Instances',
+    dbStatus: dbStatus,
+    bookInstance: bookInstanceQuery
+  });
 });
 
 module.exports = router;

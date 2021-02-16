@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  div.ui.relaxed.celled.list
+    each bookInst in bookInstance 
+      div.item
+        div.header #{bookInst}
+        
+  p database status: #{dbStatus}

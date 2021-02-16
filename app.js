@@ -10,6 +10,7 @@ require('dotenv').config()
 var indexRouter = require('./routes/index');
 var booksRouter = require('./routes/objectRoutes/booksRoute');
 var authorsRouter = require('./routes/objectRoutes/authorsRoute');
+var bookInstRouter = require('./routes/objectRoutes/bookInstRoute');
 var genreRouter = require('./routes/objectRoutes/genreRoute');
 
 var app = express();
@@ -24,7 +25,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(indexRouter, booksRouter, authorsRouter, genreRouter);
+app.use(indexRouter, booksRouter, authorsRouter, genreRouter, bookInstRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
