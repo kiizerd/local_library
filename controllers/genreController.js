@@ -81,12 +81,12 @@ exports.genre_create_post = [
             // Genre exists, redirect to its detail page.
             res.redirect(found_genre.url);
           } else {
-            genre.save(function (err) {
+            genre.save(function(err) {
               if (err) { return next(err); }
               res.redirect(genre.url);
-            })
+            });
           }
-        })
+        });
     }
   }
 ];
