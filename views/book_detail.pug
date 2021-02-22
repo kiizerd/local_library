@@ -1,7 +1,7 @@
 extends layout 
 
 block content 
-  h1 #{title}: #{book.title}
+  h1 Title: #{book.title}
 
   p #[strong Author:] 
     a(href=book.author.url) #{book.author.name} 
@@ -11,7 +11,7 @@ block content
     each val, index in book.genre 
       a(href=val.url) #{val.name}
       if index < book.genre.length - 1
-        |,
+        |, 
   
   div(style='margin-left:20px;margin-top:20px')
     h4 Copies 
