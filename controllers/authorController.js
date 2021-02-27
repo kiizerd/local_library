@@ -24,7 +24,7 @@ exports.author_detail = function (req, res, next) {
       Author.findById(req.params.id)
         .exec(callback)
     },
-    authors_books: function(callback) {
+    authors_books: function (callback) {
       Book.find({ 'author': req.params.id },'title summary')
         .exec(callback)
     }
@@ -79,11 +79,11 @@ exports.author_create_post = [
       return;
     } else {
       Author.findOne({ first_name: req.body.first_name, family_name: req.body.family_name })
-        .exec(function(err, found_author) {
+        .exec(function (err, found_author) {
           if (err) { return next(err); }
           if (found_author) { res.redirect(found_author.url); }
           else {
-            author.save(function(err) {
+            author.save(function (err) {
               if (err) { return next(err); }
               res.redirect(author.url);
             });
@@ -96,13 +96,13 @@ exports.author_create_post = [
 // Display Author delete form on GET.
 exports.author_delete_get = function (req, res, next) {
   async.parallel({
-    author: function(callback) {
+    author: function (callback) {
       Author.findById(req.params.id).exec(callback)
     },
-    authors_books: function(callback) {
+    authors_books: function (callback) {
       Book.find({ 'author': req.params.id }).exec(callback)
     },
-  }, function(err, results) {
+  }, function (err, results) {
     if (err) { return next(err); }
     if (results.author==null) {
       res.redirect('/catalog/authors');
@@ -118,13 +118,13 @@ exports.author_delete_get = function (req, res, next) {
 // Handle Author delete on POST.
 exports.author_delete_post = function (req, res, next) {
   async.parallel({
-    author: function(callback) {
+    author: function (callback) {
       Author.findById(req.body.authorid).exec(callback)
     },
-    authors_books: function(callback) {
+    authors_books: function (callback) {
       Book.find({ 'author': req.body.authorid }).exec(callback)
     }
-  }, function(err, results) {
+  }, function (err, results) {
     if (err) { return next(err); }
     if (results.authors_books.length > 0) {
       res.render('author_delete', {
@@ -144,7 +144,7 @@ exports.author_delete_post = function (req, res, next) {
 
 // Display Author update form on GET.
 exports.author_update_get = function (req, res, next) {
-  Author.findById(req.params.id, function(err, author) {
+  Author.findById(req.params.id, function (err, author) {
     if (err) { return next(err); }
     if (author == null) {
       let err = new Error('Author not found');
@@ -188,7 +188,7 @@ exports.author_update_post = [
       });
       return;
     } else {
-      Author.findByIdAndUpdate(req.params.id, author, {}, function(err, theauthor) {
+      Author.findByIdAndUpdate(req.params.id, author, {}, function (err, theauthor) {
         if (err) { return next(err); }
         res.redirect(theauthor.url);
       });
